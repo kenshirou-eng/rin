@@ -59,3 +59,25 @@ battleBtn.onclick = () => {
     battleLog.innerHTML = "💥 敗北…また挑戦してみよう！";
   }
 };
+let stages = [];
+
+async function loadStages() {
+  const res = await fetch("data/stages.json");
+  stages = await res.json();
+}
+
+function loadStage(stageNum) {
+  stageTitle.textContent = `ステージ ${stageNum}`;
+  const stageData = stages[stageNum - 1] || stages[0]; // ループ or fallback
+  enemyTeam = stageData.enemies.map(enemy => ({
+    name: enemy.name,
+    type: enemy.type,
+    hp: enemy.hp,
+    level: enemy.level
+  }));
+  renderTeam(enemyTeam, enemyArea);
+}
+
+window.onload = async () => {
+  await loadStages();
+};

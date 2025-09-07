@@ -1,0 +1,21 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fffafc;
+  text-align: center;
+  padding: 20px;
+}
+
+#team, #enemyTeam {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.card {
+  border: 2px solid #ccc;
+  padding: 10px;
+  background-color: #ffe;
+  width: 150px;
+  border-radius: 10px;
+}
